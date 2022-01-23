@@ -17,7 +17,7 @@ const submitTodoItem = async () => {
     alert("todo cannot be empty");
     return;
   }
-  const res = await fetch(`http://localhost:5000/api/v1/`, {
+  const res = await fetch(`https://todo-backend-14.herokuapp.com/api/v1/`, {
     method: "POST",
     body: JSON.stringify({
       title: inputValue.value,
@@ -41,17 +41,20 @@ const updateItem = async () => {
   });
   const currentId = customModel.getAttribute("current-model-id");
 
-  const res = await fetch(`http://localhost:5000/api/v1/${currentId}`, {
-    method: "PUT",
-    body: JSON.stringify({
-      title: itemTitle.value,
-      content: itemContent.value,
-    }),
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(
+    `https://todo-backend-14.herokuapp.com/api/v1/${currentId}`,
+    {
+      method: "PUT",
+      body: JSON.stringify({
+        title: itemTitle.value,
+        content: itemContent.value,
+      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }
+  );
   if (res.ok) {
     var toast = new bootstrap.Toast(updateToast);
     toast.show();
@@ -76,13 +79,16 @@ const deleteMe = async (index, id) => {
   cameData.splice(index, 1);
   generateItems(cameData);
 
-  const res = await fetch(`http://localhost:5000/api/v1/${id}`, {
-    method: "DELETE",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(
+    `https://todo-backend-14.herokuapp.com/api/v1/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }
+  );
   if (res.ok) {
     var toast = new bootstrap.Toast(deleteToast);
     toast.show();
@@ -97,7 +103,7 @@ const checkedUp = async (id) => {
   const unchecked = document.getElementById("liveToast-un-checked");
   if (!checkBox.checked) {
     itemBox.classList.remove("done");
-    await fetch(`http://localhost:5000/api/v1/not-done/${id}`, {
+    await fetch(`https://todo-backend-14.herokuapp.com/api/v1/not-done/${id}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -108,7 +114,7 @@ const checkedUp = async (id) => {
     toast.show();
   } else {
     itemBox.classList.add("done");
-    await fetch(`http://localhost:5000/api/v1/done/${id}`, {
+    await fetch(`https://todo-backend-14.herokuapp.com/api/v1/done/${id}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -123,7 +129,7 @@ const checkedUp = async (id) => {
 const group = document.querySelector(".list-group");
 
 const getAllData = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/");
+  const res = await fetch("https://todo-backend-14.herokuapp.com/api/v1/");
   const data = await res.json();
   cameData = data;
   generateItems(data);
