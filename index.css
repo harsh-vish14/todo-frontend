@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 20px);
+}
+
+.main-container {
+  max-width: 700px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.main-container .list-group-item {
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-container .list-group-item .list-group-item-content {
+  padding: 7px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.main-container .list-group-item .form-group-item-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.todo-item-delete:hover {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.todo-item-delete:hover svg {
+  stroke: red;
+  cursor: pointer;
+}
+
+.container-add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=index.css.map */
